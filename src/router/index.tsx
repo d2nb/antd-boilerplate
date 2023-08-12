@@ -1,4 +1,4 @@
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createHashRouter, Navigate } from 'react-router-dom';
 import Layout from '@/layout';
 import { Forbidden, NotFound } from '@/pages/exception';
 import Auth from '@/pages/auth';
@@ -107,6 +107,6 @@ const routes = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+const router = createHashRouter(routes);
 
 export default router;
