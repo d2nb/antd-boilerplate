@@ -1,0 +1,277 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "antd-boilerplate",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/api/signin": {
+      "post": {
+        "summary": "用户-登录",
+        "x-apifox-folder": "",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "username",
+                  "password"
+                ],
+                "required": [
+                  "username",
+                  "password"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "token": {
+                      "type": "string"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "token"
+                  ],
+                  "required": [
+                    "token"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3113011/apis/api-100699020-run"
+      }
+    },
+    "/api/user/me": {
+      "get": {
+        "summary": "用户-获取当前登录用户",
+        "x-apifox-folder": "",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3113011/apis/api-100699108-run"
+      }
+    },
+    "/api/user/navs": {
+      "get": {
+        "summary": "用户-导航",
+        "x-apifox-folder": "",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NavItem"
+                  }
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": [
+                      {
+                        "id": "1",
+                        "pid": "0",
+                        "name": "仪表盘",
+                        "path": "/dashboard",
+                        "type": "menu"
+                      },
+                      {
+                        "id": "1-1",
+                        "pid": "1",
+                        "name": "工作台",
+                        "path": "/dashboard/workplace",
+                        "type": "menu"
+                      },
+                      {
+                        "id": "2",
+                        "pid": "0",
+                        "name": "列表页",
+                        "path": "/list",
+                        "type": "menu"
+                      },
+                      {
+                        "id": "2-1",
+                        "pid": "2",
+                        "name": "查询表格",
+                        "path": "/list/table",
+                        "type": "menu"
+                      },
+                      {
+                        "id": "2-1-1",
+                        "pid": "2-1",
+                        "name": "表格详情",
+                        "path": "/list/table/1",
+                        "type": "page"
+                      },
+                      {
+                        "id": "3",
+                        "pid": "0",
+                        "name": "表单页",
+                        "path": "/form",
+                        "type": "menu"
+                      },
+                      {
+                        "id": "3-1",
+                        "pid": "3",
+                        "name": "分步表单",
+                        "path": "/form/step-form",
+                        "type": "menu"
+                      },
+                      {
+                        "id": "4",
+                        "pid": "0",
+                        "name": "个人中心",
+                        "path": "/account",
+                        "type": "menu"
+                      },
+                      {
+                        "id": "4-1",
+                        "pid": "4",
+                        "name": "个人设置",
+                        "path": "/account/settings",
+                        "type": "menu"
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://apifox.com/web/project/3113011/apis/api-100699642-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "NavItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "pid": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "menu",
+              "page"
+            ],
+            "x-apifox": {
+              "enumDescriptions": {
+                "menu": "",
+                "page": ""
+              }
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "pid",
+          "type",
+          "name",
+          "path"
+        ],
+        "required": [
+          "type",
+          "name",
+          "path"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string"
+          },
+          "updatedAt": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "username",
+          "email",
+          "createdAt",
+          "updatedAt"
+        ],
+        "required": [
+          "username",
+          "email"
+        ],
+        "x-apifox-ignore-properties": [],
+        "x-apifox-folder": ""
+      }
+    }
+  },
+  "servers": []
+}
