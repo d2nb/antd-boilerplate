@@ -8,7 +8,7 @@ export function setItem(
   value: any,
   config?: StorageConfig,
 ): boolean {
-  const { storage, namespace } = processConfig(config);
+  const { storage, namespace } = processStorageConfig(config);
   const namespacedKey = getNamespacedKey(key, namespace);
 
   try {
@@ -24,7 +24,7 @@ export function getItem<T = any>(
   key: string,
   config?: StorageConfig,
 ): T | null {
-  const { storage, namespace } = processConfig(config);
+  const { storage, namespace } = processStorageConfig(config);
   const namespacedKey = getNamespacedKey(key, namespace);
 
   try {
@@ -37,7 +37,7 @@ export function getItem<T = any>(
 }
 
 export function removeItem(key: string, config?: StorageConfig): boolean {
-  const { storage, namespace } = processConfig(config);
+  const { storage, namespace } = processStorageConfig(config);
   const namespacedKey = getNamespacedKey(key, namespace);
 
   try {
@@ -50,7 +50,7 @@ export function removeItem(key: string, config?: StorageConfig): boolean {
 }
 
 export function clear(config?: StorageConfig): boolean {
-  const { storage, namespace } = processConfig(config);
+  const { storage, namespace } = processStorageConfig(config);
 
   try {
     if (namespace) {
@@ -69,7 +69,7 @@ export function clear(config?: StorageConfig): boolean {
   }
 }
 
-function processConfig(config: StorageConfig = {}) {
+function processStorageConfig(config: StorageConfig = {}) {
   const { storageType = 'localStorage', namespace } = config;
   const storage = window[storageType];
 
