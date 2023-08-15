@@ -11,6 +11,7 @@
     "gen-api": "oazapfts api-schema.json src/api/client.ts --optimistic"
   },
   "dependencies": {
+    "@ant-design/cssinjs": "^1.16.2",
     "@ant-design/icons": "^5.2.5",
     "ahooks": "^3.7.8",
     "antd": "^5.8.3",
